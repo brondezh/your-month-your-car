@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Based on Your Birth Month</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #111, #444);
+            color: white;
+            padding-top: 50px;
+        }
+
+        select, button {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 20px;
+            border-radius: 10px;
+            border: none;
+        }
+
+        button {
+            background-color: #ff4d4d;
+            color: white;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 30px;
+            font-size: 20px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            white-space: pre-line;
+        }
+    </style>
+</head>
+<body>
+
+<h1>🚗 Find Your Car by Birth Month</h1>
+
+<select id="month">
+    <option value="">--Choose Month--</option>
+    <option>January</option>
+    <option>February</option>
+    <option>March</option>
+    <option>April</option>
+    <option>May</option>
+    <option>June</option>
+    <option>July</option>
+    <option>August</option>
+    <option>September</option>
+    <option>October</option>
+    <option>November</option>
+    <option>December</option>
+</select>
+
+<br>
+
+<button onclick="findCar()">Spin 🚀</button>
+
+<div id="result"></div>
+
+<script>
+const cars = {
+    January: [
+        "🔥 Lamborghini Aventador\nBold and dominant. You lead, not follow.",
+        "⚔️ Dodge Challenger\nAggressive and powerful. You bring intensity."
+    ],
+    February: [
+        "⚡ Tesla Model S\nSmart and futuristic. You think ahead.",
+        "🎯 Audi R8\nSharp and precise. You like perfection."
+    ],
+    March: [
+        "🏎️ Ferrari 488\nFast and stylish. You love excitement.",
+        "🚀 Nissan GTR\nCompetitive and focused. You play to win."
+    ],
+    April: [
+        "💪 Ford Mustang\nStrong and independent. You do your own thing.",
+        "🖤 Porsche 911\nTimeless and classy. Quiet confidence."
+    ],
+    May: [
+        "✨ Mercedes S-Class\nLuxury and comfort. You value quality.",
+        "👑 Rolls-Royce Phantom\nElite and powerful. Natural leader."
+    ],
+    June: [
+        "🚀 Nissan GTR\nPrecise and competitive.",
+        "🌊 BMW M4\nBalanced and cool."
+    ],
+    July: [
+        "🌊 BMW M4\nChill but powerful.",
+        "⚡ Tesla Model S\nCalm but intelligent."
+    ],
+    August: [
+        "👑 Rolls-Royce Phantom\nStrong presence.",
+        "🔥 Lamborghini Aventador\nYou stand out easily."
+    ],
+    September: [
+        "🎯 Audi R8\nClean and sharp.",
+        "✨ Mercedes S-Class\nSmooth and refined."
+    ],
+    October: [
+        "🖤 Porsche 911\nClassic and elegant.",
+        "🌊 BMW M4\nBalanced personality."
+    ],
+    November: [
+        "⚔️ Dodge Challenger\nBold energy.",
+        "🏎️ Ferrari 488\nPassionate and fast."
+    ],
+    December: [
+        "🎄 Range Rover\nAdventurous and stylish.",
+        "💪 Ford Mustang\nStrong and fearless."
+    ]
+};
+
+function findCar() {
+    let month = document.getElementById("month").value;
+
+    if (!month) {
+        document.getElementById("result").innerText = "❗ Pick a month first.";
+        return;
+    }
+
+    let options = cars[month];
+    let randomIndex = Math.floor(Math.random() * options.length);
+    let chosen = options[randomIndex];
+
+    document.getElementById("result").innerText = chosen;
+}
+</script>
+
+</body>
+</html>
